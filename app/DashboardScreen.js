@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, RefreshControl, ActivityIndicator, 
 import { useFocusEffect } from '@react-navigation/native';
 import { LineChart, PieChart } from 'react-native-gifted-charts';
 import ProgressBar from 'react-native-progress/Bar';
-import { collection, query, getDocs, orderBy, doc, getDoc, setDoc } from 'firebase/firestore';
+import { collection, query, getDocs, orderBy, doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
 import { useAuth } from '../hooks/useAuth';
 import { COLORS } from '../constants/colors';
@@ -18,7 +18,7 @@ const DashboardScreen = ({ navigation }) => {
   const [weeklyData, setWeeklyData] = useState([]);
   const [pieData, setPieData] = useState([]);
   const [streak, setStreak] = useState(0);
-  const [monthlyGoal, setMonthlyGoal] = useState(100);
+  const [monthlyGoal, setMonthlyGoal] = useState(100); // Default goal
   const [monthlyTotal, setMonthlyTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -59,6 +59,7 @@ const DashboardScreen = ({ navigation }) => {
     }
   }, [user]);
 
+  // useFocusEffect will refetch data every time the screen comes into view
   useFocusEffect(
     useCallback(() => {
       fetchData();
@@ -81,15 +82,16 @@ const DashboardScreen = ({ navigation }) => {
   return (
     <ScrollView
       style={styles.container}
+      contentContainerStyle={{ paddingBottom: 20 }}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
     >
-      <View style={{ padding: 20 }}>
+      <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
         <Card title="🔥 Your Streak">
           <Text style={styles.streakText}>{streak} {streak === 1 ? 'day' : 'days'}</Text>
           <Text style={styles.subtitle}>Keep logging daily to build your habit!</Text>
         </Card>
 
-        <Card title="Monthly Goal">
+        <Card title="📅 Monthly Goal">
           <Text style={styles.goalText}>
             {monthlyTotal.toFixed(2)} / {monthlyGoal} kg CO2
           </Text>
@@ -104,19 +106,19 @@ const DashboardScreen = ({ navigation }) => {
           />
         </Card>
 
-        <Card title="Weekly Emissions (kg CO2)">
+        <Card title="📊 Weekly Emissions (kg CO2)">
           <LineChart
             data={weeklyData}
             height={200}
             color1={theme.primary}
             dataPointsColor1={theme.primary}
             startFillColor1={theme.primary}
-            endFillColor1={'#3b82f620'}
+            endFillColor1={'#3b82f620'} // Lighter primary
             isAnimated
           />
         </Card>
 
-        <Card title="Emission Sources">
+        <Card title="🍰 Emission Sources">
           {pieData.length > 0 ? (
             <View style={{alignItems: 'center'}}>
                 <PieChart data={pieData} donut showText textColor={theme.text} radius={100} />
@@ -134,11 +136,32 @@ const DashboardScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: theme.secondary },
-  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: theme.background },
-  streakText: { fontSize: 36, fontWeight: 'bold', color: theme.accent },
-  subtitle: { fontSize: 14, color: theme.textSecondary, marginTop: 4 },
-  goalText: { fontSize: 16, color: theme.text, marginBottom: 10, alignSelf: 'center' },
+  container: {
+    flex: 1,
+    backgroundColor: theme.secondary
+  },
+  centered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.background
+  },
+  streakText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: theme.accent
+  },
+  subtitle: {
+    fontSize: 14,
+    color: theme.textSecondary,
+    marginTop: 4
+  },
+  goalText: {
+    fontSize: 16,
+    color: theme.text,
+    marginBottom: 10,
+    alignSelf: 'center'
+  },
 });
 
 export default DashboardScreen;

@@ -68,3 +68,16 @@ export const logActivity = async (userId, activityData) => {
     return { error };
   }
 };
+
+export const updateMonthlyGoal = async (userId, newGoal) => {
+  try {
+    const userDocRef = doc(db, 'users', userId);
+    await updateDoc(userDocRef, {
+      monthlyGoal: newGoal,
+    });
+    return {};
+  } catch (error) {
+    console.error("Error updating goal: ", error);
+    return { error };
+  }
+};

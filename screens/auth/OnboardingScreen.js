@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
     backgroundColor: theme.background,
   },
   illustration: {
-    width: 250,
-    height: 250,
-    marginBottom: 50,
+      width: 300,
+      height: 300,
+      resizeMode: 'contain',
+      marginBottom: 40,
   },
   title: {
     fontSize: 28,
