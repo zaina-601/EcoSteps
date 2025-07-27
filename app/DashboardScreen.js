@@ -18,7 +18,7 @@ const DashboardScreen = ({ navigation }) => {
   const [weeklyData, setWeeklyData] = useState([]);
   const [pieData, setPieData] = useState([]);
   const [streak, setStreak] = useState(0);
-  const [monthlyGoal, setMonthlyGoal] = useState(100); // Default goal
+  const [monthlyGoal, setMonthlyGoal] = useState(100);
   const [monthlyTotal, setMonthlyTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -28,19 +28,16 @@ const DashboardScreen = ({ navigation }) => {
     setLoading(true);
 
     try {
-      // Fetch User Goal
       const userDocRef = doc(db, 'users', user.uid);
       const userDoc = await getDoc(userDocRef);
       if (userDoc.exists() && userDoc.data().monthlyGoal) {
         setMonthlyGoal(userDoc.data().monthlyGoal);
       }
 
-      // Fetch Activities
       const q = query(collection(db, 'users', user.uid, 'activities'), orderBy('createdAt', 'desc'));
       const querySnapshot = await getDocs(q);
       const activities = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-      // Process Data
       const currentMonthTotal = activities
         .filter(act => new Date(act.createdAt.toDate()).getMonth() === new Date().getMonth())
         .reduce((sum, act) => sum + act.totalCO2, 0);
@@ -59,7 +56,6 @@ const DashboardScreen = ({ navigation }) => {
     }
   }, [user]);
 
-  // useFocusEffect will refetch data every time the screen comes into view
   useFocusEffect(
     useCallback(() => {
       fetchData();
@@ -91,7 +87,7 @@ const DashboardScreen = ({ navigation }) => {
           <Text style={styles.subtitle}>Keep logging daily to build your habit!</Text>
         </Card>
 
-        <Card title="📅 Monthly Goal">
+        <Card title="Monthly Goal">
           <Text style={styles.goalText}>
             {monthlyTotal.toFixed(2)} / {monthlyGoal} kg CO2
           </Text>
@@ -106,7 +102,7 @@ const DashboardScreen = ({ navigation }) => {
           />
         </Card>
 
-        <Card title="📊 Weekly Emissions (kg CO2)">
+        <Card title="Weekly Emissions (kg CO2)">
           <LineChart
             data={weeklyData}
             height={200}
@@ -118,7 +114,7 @@ const DashboardScreen = ({ navigation }) => {
           />
         </Card>
 
-        <Card title="🍰 Emission Sources">
+        <Card title="Emission Sources">
           {pieData.length > 0 ? (
             <View style={{alignItems: 'center'}}>
                 <PieChart data={pieData} donut showText textColor={theme.text} radius={100} />

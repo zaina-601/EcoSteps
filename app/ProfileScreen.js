@@ -1,5 +1,3 @@
-// app/ProfileScreen.js
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Alert, TextInput } from 'react-native';
 import { useAuth } from '../hooks/useAuth';
@@ -8,7 +6,7 @@ import { COLORS } from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import FormButton from '../components/common/FormButton';
 import FormInput from '../components/common/FormInput';
-import Constants from 'expo-constants'; // To get app version
+import Constants from 'expo-constants';
 
 const theme = COLORS.light;
 
@@ -59,7 +57,7 @@ const ProfileScreen = () => {
 
       {/* Danger Zone */}
       <View style={styles.dangerZone}>
-        <Text style={styles.sectionTitle}>Danger Zone</Text>
+        <Text style={styles.sectionTitle}>Log Out</Text>
         <TouchableOpacity style={styles.optionRow} onPress={handleLogout}>
           <Ionicons name="log-out-outline" size={24} color={'#EF4444'} />
           <Text style={[styles.optionText, { color: '#EF4444' }]}>Log Out</Text>
@@ -97,7 +95,6 @@ const ProfileScreen = () => {
   );
 };
 
-// Styles remain the same
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: theme.secondary },
   header: { alignItems: 'center', padding: 30, backgroundColor: theme.background },

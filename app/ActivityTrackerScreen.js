@@ -16,7 +16,7 @@ const theme = COLORS.light;
 
 const createPickerItems = (category) =>
   Object.keys(EMISSION_FACTORS[category]).map((key) => ({
-    label: key.charAt(0).toUpperCase() + key.slice(1), // Capitalize first letter
+    label: key.charAt(0).toUpperCase() + key.slice(1),
     value: key,
   }));
 
