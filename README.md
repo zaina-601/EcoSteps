@@ -42,9 +42,17 @@ This project leverages a modern and powerful set of tools to deliver a high-qual
 
 ## Screenshots
 
-|                    Onboarding                     |                  Login                  |                    Dashboard                    |                    Dashboard                     |                   Activity Tracker                   |                   Activity Tracker                    |
-|:-------------------------------------------------:|:---------------------------------------:|:-----------------------------------------------:|:------------------------------------------------:|:----------------------------------------------------:|:-----------------------------------------------------:|
-| ![Onboarding Screen](screenshots/onboarding.jpeg) | ![Login Screen](screenshots/login.jpeg) | ![Dashboard Screen](screenshots/dashboard.jpeg) | ![Dashboard Screen](screenshots/dashboard2.jpeg) | ![Activity Tracker Screen](screenshots/tracker.jpeg) | ![Activity Tracker Screen](screenshots/tracker2.jpeg) |
+|                    Onboarding                     |                  Login                  |
+|:-------------------------------------------------:|:---------------------------------------:|
+| ![Onboarding Screen](screenshots/onboarding.jpeg) | ![Login Screen](screenshots/login.jpeg) |
+
+|                    Dashboard                    |                    Dashboard                     |
+|:-----------------------------------------------:|:------------------------------------------------:|
+|![Dashboard Screen](screenshots/dashboard.jpeg) | ![Dashboard Screen](screenshots/dashboard2.jpeg) | 
+
+|                   Activity Tracker                   |                   Activity Tracker                    |
+|:----------------------------------------------------:|:-----------------------------------------------------:|
+|![Activity Tracker Screen](screenshots/tracker.jpeg) | ![Activity Tracker Screen](screenshots/tracker2.jpeg) |
 
 |                 Eco Tips                  |                 Profile                 |
 |:-----------------------------------------:|:----------------------------------------:|
