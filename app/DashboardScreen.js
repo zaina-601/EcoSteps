@@ -82,7 +82,7 @@ const DashboardScreen = ({ navigation }) => {
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
     >
       <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
-        <Card title="🔥 Your Streak">
+        <Card title="Your Streak">
           <Text style={styles.streakText}>{streak} {streak === 1 ? 'day' : 'days'}</Text>
           <Text style={styles.subtitle}>Keep logging daily to build your habit!</Text>
         </Card>

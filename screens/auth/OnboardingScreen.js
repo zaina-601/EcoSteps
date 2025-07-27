@@ -2,17 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { COLORS } from '../../constants/colors';
 
-// Use the light theme colors for this screen
 const theme = COLORS.light;
 
 const OnboardingScreen = ({ navigation }) => (
   <View style={styles.container}>
-    {/*
       <Image
-        source={require('../../assets/images/onboarding-illustration.png')}
+        source={require('../../assets/images/onboarding-illustration.jpg')}
         style={styles.illustration}
       />
-    */}
     <Text style={styles.title}>Welcome to EcoSteps</Text>
     <Text style={styles.subtitle}>Track your carbon footprint and help the planet.</Text>
 

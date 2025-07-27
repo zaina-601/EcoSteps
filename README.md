@@ -42,13 +42,13 @@ This project leverages a modern and powerful set of tools to deliver a high-qual
 
 ## Screenshots
 
-| Onboarding | Login | Dashboard | Activity Tracker |
-| :--------: | :---: | :-------: | :--------------: |
-| ![Onboarding Screen](screenshots/onboarding.jpg) | ![Login Screen](screenshots/login.jpg) | ![Dashboard Screen](screenshots/dashboard.jpg) | ![Activity Tracker Screen](screenshots/tracker.jpg) |
+|                    Onboarding                     |                  Login                  |                    Dashboard                    |                    Dashboard                     |                   Activity Tracker                   |                   Activity Tracker                    |
+|:-------------------------------------------------:|:---------------------------------------:|:-----------------------------------------------:|:------------------------------------------------:|:----------------------------------------------------:|:-----------------------------------------------------:|
+| ![Onboarding Screen](screenshots/onboarding.jpeg) | ![Login Screen](screenshots/login.jpeg) | ![Dashboard Screen](screenshots/dashboard.jpeg) | ![Dashboard Screen](screenshots/dashboard2.jpeg) | ![Activity Tracker Screen](screenshots/tracker.jpeg) | ![Activity Tracker Screen](screenshots/tracker2.jpeg) |
 
-| Eco Tips |
-| :------: |
-| ![Eco Tips Screen](screenshots/tips.jpg) |
+|                 Eco Tips                  |                 Profile                 |
+|:-----------------------------------------:|:----------------------------------------:|
+| ![Eco Tips Screen](screenshots/tips.jpeg) | ![Profile Screen](screenshots/Profile.jpeg) |
 
 ---
 
